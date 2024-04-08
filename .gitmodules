@@ -1,0 +1,3 @@
+[submodule "src/shared"]
+	path = src/shared
+	url = https://github.com/crissancar/nestjs-skeleton-microservices-shared.git
