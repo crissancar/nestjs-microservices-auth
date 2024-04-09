@@ -3,7 +3,7 @@ import { ClientsModule } from '@nestjs/microservices';
 
 import { BlacklistsModule } from '../blacklists/blacklists.module';
 import { usersClientsConfig } from './config/users-clients.config';
-import { UserAuthenticator } from './services/user-authenticator.service';
+import { UserAuthenticator } from './application/services/user-authenticator.service';
 
 @Module({
 	imports: [BlacklistsModule, ClientsModule.register(usersClientsConfig)],

@@ -6,7 +6,7 @@ import { BlacklistsModule } from '../blacklists/blacklists.module';
 import { UsersModule } from '../users/users.module';
 import { jwtConfig } from './config/jwt.config';
 import { AuthPostController } from './controllers/auth-post.controller';
-import { JwtCreator } from './services/jwt-creator.service';
+import { JwtCreator } from './application/services/jwt-creator.service';
 
 @Module({
 	imports: [JwtModule.register(jwtConfig), ApiKeysModule, BlacklistsModule, UsersModule],

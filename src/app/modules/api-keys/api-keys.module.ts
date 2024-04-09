@@ -1,11 +1,11 @@
 import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
+import { ApiKeyAuthenticator } from './application/services/api-key-authenticator.service';
+import { ApiKeyFinder } from './application/services/api-key-finder.service';
 import { apiKeysConfig } from './config/api-keys.config';
-import { ApiKeyEntity } from './persistence/api-key.entity';
-import { TypeOrmApiKeyRepository } from './persistence/typeorm-api-key.repository';
-import { ApiKeyAuthenticator } from './services/api-key-authenticator.service';
-import { ApiKeyFinder } from './services/api-key-finder.service';
+import { ApiKeyEntity } from './infrastructure/persistence/api-key.entity';
+import { TypeOrmApiKeyRepository } from './infrastructure/persistence/typeorm-api-key.repository';
 
 const { repositoryInterface } = apiKeysConfig.repository;
 
