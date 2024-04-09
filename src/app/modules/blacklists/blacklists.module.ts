@@ -2,12 +2,12 @@ import { Module } from '@nestjs/common';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
 import { blacklistsConfig } from './config/blacklists.config';
-import { BlacklistIPEntity } from './ip/persistence/blacklist-ip.entity';
-import { TypeOrmBlacklistIPRepository } from './ip/persistence/typeorm-blacklist-ip.repository';
-import { BlacklistIPChecker } from './ip/services/blacklist-ip-checker.service';
-import { BlacklistUserEntity } from './user/persistence/blacklist-user.entity';
-import { TypeOrmBlacklistUserRepository } from './user/persistence/typeorm-blacklist-user.repository';
-import { BlacklistUserChecker } from './user/services/blacklist-user-checker.service';
+import { BlacklistIPChecker } from './ip/application/services/blacklist-ip-checker.service';
+import { BlacklistIPEntity } from './ip/infrastructure/persistence/blacklist-ip.entity';
+import { TypeOrmBlacklistIPRepository } from './ip/infrastructure/persistence/typeorm-blacklist-ip.repository';
+import { BlacklistUserChecker } from './user/application/services/blacklist-user-checker.service';
+import { BlacklistUserEntity } from './user/infrastructure/persistence/blacklist-user.entity';
+import { TypeOrmBlacklistUserRepository } from './user/infrastructure/persistence/typeorm-blacklist-user.repository';
 
 const { repositoryInterface: blacklistIPRepositoryInterface } = blacklistsConfig.ip.repository;
 const { repositoryInterface: blacklistUserRepositoryInterface } = blacklistsConfig.user.repository;

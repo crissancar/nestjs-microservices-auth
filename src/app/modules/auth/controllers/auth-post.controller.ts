@@ -6,13 +6,13 @@ import { AuthenticateApiKeyPayload } from '../../../../shared/app/modules/auth/i
 import { AuthenticateUserPayload } from '../../../../shared/app/modules/auth/interfaces/authenticate-user-payload.interface';
 import { CreateUserTokensPayload } from '../../../../shared/app/modules/auth/interfaces/create-user-tokens-payload.interface';
 import { LoggerFactory } from '../../../../shared/app/modules/shared/services/logger-factory.service';
-import { AuthenticateApiKeyResponse } from '../../api-keys/dtos/authenticate-api-key.response.dto';
-import { ApiKeyAuthenticator } from '../../api-keys/services/api-key-authenticator.service';
-import { UserAuthenticator } from '../../users/services/user-authenticator.service';
+import { AuthenticateApiKeyResponse } from '../../api-keys/application/dtos/authenticate-api-key.response.dto';
+import { ApiKeyAuthenticator } from '../../api-keys/application/services/api-key-authenticator.service';
+import { UserAuthenticator } from '../../users/application/services/user-authenticator.service';
+import { AuthenticatedUser } from '../application/dtos/authenticated-user.dto';
+import { CreateUserTokensResponse } from '../application/dtos/create-user-tokens-response.dto';
+import { JwtCreator } from '../application/services/jwt-creator.service';
 import { authConfig } from '../config/auth.config';
-import { AuthenticatedUser } from '../dtos/authenticated-user.dto';
-import { CreateUserTokensResponse } from '../dtos/create-user-tokens-response.dto';
-import { JwtCreator } from '../services/jwt-creator.service';
 
 const { postController } = authConfig;
 const { context } = postController.constants;
