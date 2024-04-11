@@ -1,11 +1,9 @@
-import { Length } from 'class-validator';
-import { RpcException } from '@nestjs/common';
 import { Seeder } from '@jorgebodega/typeorm-seeding';
 import { DataSource } from 'typeorm';
-import { ApiKeyEntity } from '../../../src/app/modules/api-keys/persistence/api-key.entity';
-import { ApiKeyAudiences } from '../../../src/app/modules/api-keys/enums/api-key-audiences.enum';
-import { generateApiKey } from 'generate-api-key';
-import { Crypto } from '../../../src/app/modules/shared/services/crypto.service';
+import { ApiKeyEntity } from '../../../src/app/modules/api-keys/infrastructure/persistence/api-key.entity';
+import { ApiKeyAudiences } from '../../../src/app/modules/api-keys/domain/enums/api-key-audiences.enum';
+import { Crypto } from '../../../src/shared/app/modules/shared/services/crypto.service';
+import { generateApiKey } from 'generate-api-key'
 
 export default class ApiKeySeed extends Seeder {
     async run(dataSource: DataSource): Promise<void> {

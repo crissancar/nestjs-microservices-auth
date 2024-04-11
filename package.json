@@ -55,6 +55,7 @@
     "bcrypt": "5.1.1",
     "class-transformer": "0.5.1",
     "class-validator": "0.14.1",
+    "generate-api-key": "1.0.2",
     "nestjs-pino": "4.0.0",
     "npm-check-updates": "16.14.12",
     "passport": "0.7.0",
@@ -71,6 +72,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "8.3.1",
+    "@jorgebodega/typeorm-seeding": "6.0.0",
     "@nestjs/cli": "10.3.0",
     "@nestjs/schematics": "10.1.0",
     "@nestjs/testing": "10.3.0",
