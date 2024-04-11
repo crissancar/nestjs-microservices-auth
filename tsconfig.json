@@ -7,7 +7,6 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "incremental": true,
-//    "jsx": "react",
     "module": "CommonJS",
     "outDir": "./artifacts/dist",
     "removeComments": true,
@@ -21,6 +20,5 @@
     "node_modules",
     "dist",
     "build",
-    "artifacts"
   ]
 }

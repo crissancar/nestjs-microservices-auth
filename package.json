@@ -19,10 +19,12 @@
     "prebuild": "rimraf ./artifacts/dist",
     "prepare": "husky install",
     "prestart:prod": "npm run typeorm:migration:run && npm run typeorm:seed:run",
+    "prestart:launcher": "npm run typeorm:migration:run && npm run typeorm:seed:run",
     "start": "export NODE_PATH=./artifacts/dist/src/ && npm run start:prod",
     "start:debug": "nest start --debug --watch",
     "start:dev": "export $(cat .env | xargs) > /dev/null && nest start --watch",
     "start:dev:swc": "export $(cat .env | xargs) > /dev/null && nest start --path tsconfig.dev.json -b swc --type-check --watch",
+    "start:launcher": "export $(cat .env | xargs) > /dev/null && nest start --path tsconfig.dev.json -b swc --type-check --watch",
     "start:prod": "node ./artifacts/dist/src/main.js",
     "test": "npm run test:acceptance && npm run test:integration && npm run test:unit",
     "test:sync": "npm run test:acceptance:sync && npm run test:integration:sync && npm run test:unit:sync",
@@ -31,7 +33,14 @@
     "test:integration": "jest --config test/config/jest/jest-integration.json",
     "test:integration:sync": "jest --config test/config/jest/jest-integration.json --runInBand --detectOpenHandles",
     "test:unit": "jest --config test/config/jest/jest-unit.json",
-    "test:unit:sync": "jest --config test/config/jest/jest-unit.json --runInBand --detectOpenHandles"
+    "test:unit:sync": "jest --config test/config/jest/jest-unit.json --runInBand --detectOpenHandles",
+    "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli -d src/config/orm/typeorm-migrations.config.ts",
+    "typeorm:migration:generate": "export $(cat .env | xargs) > /dev/null && npm run typeorm -- migration:generate artifacts/orm/migrations/$npm_config_name",
+    "typeorm:migration:create": "typeorm migration:create artifacts/orm/migrations/$npm_config_name",
+    "typeorm:migration:revert": "export $(cat .env | xargs) > /dev/null && npm run typeorm -- migration:revert",
+    "typeorm:migration:run": "export $(cat .env | xargs) > /dev/null && npm run typeorm -- migration:run",
+    "typeorm:migration:test:run": "export $(cat .env.test | xargs) > /dev/null && npm run typeorm -- migration:run",
+    "typeorm:seed:run": "export $(cat .env | xargs) > /dev/null && ts-node -r tsconfig-paths/register ./node_modules/@jorgebodega/typeorm-seeding/dist/cli.js seed -d src/config/orm/typeorm-migrations.config.ts artifacts/orm/seeds/*.seed.ts"
   },
   "dependencies": {
     "@nestjs/common": "10.3.0",
