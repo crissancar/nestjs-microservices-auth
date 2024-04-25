@@ -1,10 +1,11 @@
 import { DataSource, DataSourceOptions } from 'typeorm';
+import { SeederOptions } from 'typeorm-extension';
 
 import { config } from '../app';
 
 const { postgres, typeorm } = config;
 
-const dataSourceOptions: DataSourceOptions = {
+const dataSourceOptions: DataSourceOptions & SeederOptions = {
 	type: 'postgres',
 	database: postgres.database.name,
 	host: postgres.database.host,
@@ -18,6 +19,7 @@ const dataSourceOptions: DataSourceOptions = {
 	logging: typeorm.logging,
 	migrations: ['artifacts/orm/migrations/*.ts'],
 	synchronize: false,
+	seeds: ['artifacts/orm/seeds/*.ts'],
 };
 
 const dataSource = new DataSource(dataSourceOptions);

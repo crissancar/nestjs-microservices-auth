@@ -40,7 +40,7 @@
     "typeorm:migration:revert": "export $(cat .env | xargs) > /dev/null && npm run typeorm -- migration:revert",
     "typeorm:migration:run": "export $(cat .env | xargs) > /dev/null && npm run typeorm -- migration:run",
     "typeorm:migration:test:run": "export $(cat .env.test | xargs) > /dev/null && npm run typeorm -- migration:run",
-    "typeorm:seed:run": "export $(cat .env | xargs) > /dev/null && ts-node -r tsconfig-paths/register ./node_modules/@jorgebodega/typeorm-seeding/dist/cli.js seed -d src/config/orm/typeorm-migrations.config.ts artifacts/orm/seeds/*.seed.ts"
+    "typeorm:seed:run": "export $(cat .env | xargs) > /dev/null && ts-node ./node_modules/typeorm-extension/bin/cli.cjs seed:run -d src/config/orm/typeorm-migrations.config.ts"
   },
   "dependencies": {
     "@nestjs/common": "10.3.0",
@@ -72,7 +72,6 @@
   },
   "devDependencies": {
     "@faker-js/faker": "8.3.1",
-    "@jorgebodega/typeorm-seeding": "6.0.0",
     "@nestjs/cli": "10.3.0",
     "@nestjs/schematics": "10.1.0",
     "@nestjs/testing": "10.3.0",
@@ -99,6 +98,7 @@
     "ts-loader": "9.5.1",
     "ts-node": "10.9.2",
     "tsconfig-paths": "4.2.0",
+    "typeorm-extension": "3.5.1",
     "typescript": "5.3.3"
   },
   "lint-staged": {

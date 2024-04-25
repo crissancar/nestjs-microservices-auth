@@ -1,7 +1,3 @@
-# environments
-.env
-.env.*
-
 # local history
 .history
 
